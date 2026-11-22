@@ -1,0 +1,10 @@
+{
+  "name": "Aquafulness",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": { "label": "Aquafulness", "onAutoForward": "openBrowser" }
+  },
+  "postCreateCommand": "npm ci",
+  "postStartCommand": "npm run dev -- --host 0.0.0.0 > /tmp/aquafulness-vite.log 2>&1 &"
+}

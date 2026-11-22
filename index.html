@@ -42,12 +42,12 @@
         </div>
         <div class="settings-grid" data-panel="weather">
           <label>Weather <select id="weather"><option value="clear">Clear skies</option><option value="overcast">Overcast</option><option value="storm">Stormy</option></select></label>
-          <label>Wind strength <output id="wind-value">35%</output><input id="wind" type="range" min="0" max="100" value="35"></label>
-          <label>Wave height <output id="height-value">55%</output><input id="height" type="range" min="0" max="100" value="55"></label>
+          <label>Wind strength <output id="wind-value">35%</output><input id="wind" aria-label="Wind strength" type="range" min="0" max="100" value="35"></label>
+          <label>Wave height <output id="height-value">55%</output><input id="height" aria-label="Wave height" type="range" min="0" max="100" value="55"></label>
         </div>
         <div class="settings-grid" data-panel="water" hidden>
           <label>Water color <input id="water-color" type="color" value="#167e86"></label>
-          <label>Ocean depth <output id="depth-value">24 m</output><input id="depth" type="range" min="3" max="60" value="24"></label>
+          <label>Ocean depth <output id="depth-value">24 m</output><input id="depth" aria-label="Ocean depth" type="range" min="3" max="60" value="24"></label>
           <label>Seabed color <input id="bottom-color" type="color" value="#c7b18b"></label>
         </div>
       </section>
