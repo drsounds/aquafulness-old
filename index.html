@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#071d2a" />
+    <title>Aquafulness — find your flow</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="ocean" aria-label="First person ocean simulation"></canvas>
+      <div class="vignette"></div>
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">≈</span><span>AQUA<span class="brand-light">FULNESS</span><small>AN OCEAN EXPERIENCE</small></span></div>
+        <div class="top-center"><span class="status-dot"></span> LIVE SIMULATION <span class="divider"></span> <span id="weather-label">CLEAR SKIES</span></div>
+        <button id="info-toggle" class="icon-button" aria-label="Show controls help" title="Controls help">?</button>
+      </header>
+
+      <main class="scene-ui">
+        <div class="scene-heading"><div class="eyebrow"><span></span> YOUR MOMENT OF CALM</div><h1>Find your <em>flow.</em></h1><p>Take a breath. The ocean is yours.</p></div>
+        <div class="horizon-label"><span></span> OPEN WATER <span></span></div>
+        <div class="scene-meta"><span>◉ &nbsp; FIRST PERSON VIEW</span><span class="meta-line"></span><span>FLOATING FREE</span></div>
+      </main>
+
+      <div id="help" class="help" hidden><button id="help-close" aria-label="Close help">×</button><strong>Find your bearings</strong><p>Drag the sticks to swim, look, and guide the water. Use WASD to swim and arrow keys to look. Adjust the ocean in the environment panel below.</p></div>
+
+      <section class="control-deck" aria-label="Simulation controls">
+        <div class="deck-top"><div><span class="deck-kicker">TAKE CONTROL</span><h2>Make waves, at your pace.</h2></div><div class="deck-note"><span class="status-dot"></span> INTERACTIVE EXPERIENCE</div></div>
+        <div class="controls">
+          <div class="control-group primary-control"><div class="stick" data-stick="move" role="application" aria-label="Swim direction joystick"><div class="stick-cross"></div><div class="stick-knob"><span>✦</span></div></div><div class="control-copy"><span class="control-num">01 / MOVEMENT</span><strong>Swim</strong><small>Move through the water</small></div></div>
+          <div class="control-group small-control"><div class="stick small" data-stick="waves" role="application" aria-label="Wave direction joystick"><div class="stick-cross"></div><div class="stick-knob"><span>≈</span></div></div><div class="control-copy"><span class="control-num">02 / OCEAN</span><strong>Waves</strong><small>Set wave direction</small></div></div>
+          <div class="control-group small-control"><div class="stick small" data-stick="current" role="application" aria-label="Current direction joystick"><div class="stick-cross"></div><div class="stick-knob"><span>↝</span></div></div><div class="control-copy"><span class="control-num">03 / OCEAN</span><strong>Current</strong><small>Set current direction</small></div></div>
+          <div class="control-group primary-control"><div class="stick" data-stick="look" role="application" aria-label="Look direction joystick"><div class="stick-cross"></div><div class="stick-knob"><span>✧</span></div></div><div class="control-copy"><span class="control-num">04 / PERSPECTIVE</span><strong>Look around</strong><small>Explore your surroundings</small></div></div>
+        </div>
+        <div class="deck-bottom"><span>DRAG TO INTERACT <span class="desktop-hint"> / &nbsp; WASD + ARROW KEYS</span></span><button id="settings-toggle" aria-expanded="false" aria-controls="settings">ENVIRONMENT SETTINGS <span>＋</span></button><span>DESIGNED TO UNWIND &nbsp; ✳</span></div>
+      </section>
+
+      <section id="settings" class="settings" aria-label="Environment settings" hidden>
+        <div class="settings-header"><div><span class="deck-kicker">MAKE IT YOURS</span><h2>Set the scene.</h2></div><button id="settings-close" aria-label="Close environment settings">×</button></div>
+        <div class="tabs" role="tablist" aria-label="Environment settings">
+          <button role="tab" aria-selected="true" data-tab="weather">Weather &amp; wind</button><button role="tab" aria-selected="false" data-tab="water">Water &amp; depth</button>
+        </div>
+        <div class="settings-grid" data-panel="weather">
+          <label>Weather <select id="weather"><option value="clear">Clear skies</option><option value="overcast">Overcast</option><option value="storm">Stormy</option></select></label>
+          <label>Wind strength <output id="wind-value">35%</output><input id="wind" type="range" min="0" max="100" value="35"></label>
+          <label>Wave height <output id="height-value">55%</output><input id="height" type="range" min="0" max="100" value="55"></label>
+        </div>
+        <div class="settings-grid" data-panel="water" hidden>
+          <label>Water color <input id="water-color" type="color" value="#167e86"></label>
+          <label>Ocean depth <output id="depth-value">24 m</output><input id="depth" type="range" min="3" max="60" value="24"></label>
+          <label>Seabed color <input id="bottom-color" type="color" value="#c7b18b"></label>
+        </div>
+      </section>
+      <div id="error" class="error" hidden>WebGL is unavailable. Please try a browser or device with WebGL enabled.</div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
